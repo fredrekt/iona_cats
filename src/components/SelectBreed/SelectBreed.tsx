@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Select, Spin } from 'antd';
+import { Col, Row, Select, Spin } from 'antd';
 import './SelectBreed.scss';
 import { useStore } from '../../utils/contextStore';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -57,22 +57,28 @@ const SelectBreed: React.FC<SelectBreedProps> = ({ setBreed }) => {
 		}));
 
 		return (
-			<Select
-				size="large"
-				className="selectBreed"
-				showSearch
-				placeholder="Select breed"
-				optionFilterProp="children"
-				onChange={onChange}
-				onSearch={onSearch}
-				filterOption={filterOption}
-				options={dataOptions}
-				value={selectedBreed}
-			/>
+			<Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={24}>
+				<Select
+					size="large"
+					className="selectBreed"
+					showSearch
+					placeholder="Select breed"
+					optionFilterProp="children"
+					onChange={onChange}
+					onSearch={onSearch}
+					filterOption={filterOption}
+					options={dataOptions}
+					value={selectedBreed}
+				/>
+			</Col>
 		);
 	};
 
-	return <>{renderSelectBreeds()}</>;
+	return (
+		<Row gutter={[24, 24]} className="selectBreedRow">
+			{renderSelectBreeds()}
+		</Row>
+	);
 };
 
 export default SelectBreed;
