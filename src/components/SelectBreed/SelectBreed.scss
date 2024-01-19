@@ -4,7 +4,7 @@
 	.selectBreed {
 		width: 100%;
 	}
-		/**
+	/**
 	* Basic CSS Media Query Template
 	* ------------------------------------------
 	*  Responsive Grid Media Queries - 1280, 1024, 768, 480
@@ -15,20 +15,16 @@
 	* --------------------------------------------
 	*/
 	@media all and (min-width: 1024px) and (max-width: 1280px) {
-
 	}
 
 	@media all and (min-width: 768px) and (max-width: 1024px) {
-
 	}
 
 	@media all and (min-width: 480px) and (max-width: 768px) {
-
 	}
 
 	@media all and (max-width: 480px) {
-
-			margin-left: 0!important;
-			margin-right: 0!important;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
 	}
 }
