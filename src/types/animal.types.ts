@@ -16,6 +16,14 @@ export interface Breed {
     life_span: string;
     wikipedia_url: string;
     weight: AnimalWeight;
+    description: string;
+    hypoallergenic: boolean;
+    suppressed_tail: boolean;
+    short_legs: boolean;
+    rare: boolean;
+    natural: boolean;
+    hairless: boolean;
+    experimental: boolean;
 }
 
 export interface AnimalWeight {
