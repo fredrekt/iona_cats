@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PageTitle from '../../components/PageTitle/PageTitle';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import DefaultLayout from '../../layouts/DefaultLayout';
 import { getCat } from '../../api/api';
 import { Api } from '../../types/api.types';
@@ -27,7 +27,7 @@ const Animalpage: React.FC = () => {
 		// eslint-disable-next-line
 	}, [id]);
 
-	const booleanParserDetail = (x: boolean): string => (x ? 'Yes' : 'No');
+	// const booleanParserDetail = (x: boolean): string => (x ? 'Yes' : 'No');
 	const handleGoBack = () => {
 		navigate(-1);
 	};
@@ -56,7 +56,7 @@ const Animalpage: React.FC = () => {
 									<Typography.Paragraph>{data.temperament}</Typography.Paragraph>
 									<Descriptions title="Details">
 										<Descriptions.Item label="Origin">{data.origin}</Descriptions.Item>
-										<Descriptions.Item label="Life Span">{data.life_span}</Descriptions.Item>
+										{/* <Descriptions.Item label="Life Span">{data.life_span}</Descriptions.Item>
 										<Descriptions.Item label="Weight - Imperial">
 											{data.weight?.imperial}
 										</Descriptions.Item>
@@ -83,14 +83,13 @@ const Animalpage: React.FC = () => {
 										</Descriptions.Item>
 										<Descriptions.Item label="Experimental">
 											{booleanParserDetail(data.experimental)}
-										</Descriptions.Item>
+										</Descriptions.Item> */}
 									</Descriptions>
 								</>
 							))}
 					</Col>
 				</Row>
 			)}
-			<Link to="/">Go back</Link>
 		</DefaultLayout>
 	);
 };
