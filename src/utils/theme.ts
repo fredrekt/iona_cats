@@ -10,7 +10,9 @@ export const theme = {
     },
     components: {
         Button: {
-          borderRadius: 0
+          borderRadius: 0,
+					borderRadiusLG: 0
+
         },
         Input: {
           borderRadius: 0
