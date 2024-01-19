@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
 
 	return (
 		<div className="navbar">
-			<Typography.Text className="navbarLogo">Cats.</Typography.Text>
+			<Typography.Text className="navbarLogo">{process.env.REACT_APP_APP_NAME || 'Cats.'}</Typography.Text>
 			<Menu
 				selectedKeys={[pathname]}
 				theme="light"
