@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Animal } from '../../types/animal.types';
-import { Button, Col, Empty, Row, Spin } from 'antd';
+import { Button, Col, Empty, Row, Spin, message } from 'antd';
 import { getCatsByBreed } from '../../api/api';
 import './CatList.scss';
 import CatCard from '../CatCard/CatCard';
@@ -61,6 +61,7 @@ const CatList: React.FC<CatListProps> = ({ breed }) => {
 
 			setListOfCats((prevList) => [...prevList, ...uniqueCats]);
 		} catch (error) {
+			message.error(`Apologies but we could not load new cats for you at this time! Miau!`);
 			console.error(`Something went wrong in getting list of cats by breed.`);
 		} finally {
 			setLoading(false);

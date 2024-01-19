@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import DefaultLayout from '../../layouts/DefaultLayout';
 import { getCat } from '../../api/api';
 import { Api } from '../../types/api.types';
-import { Breadcrumb, Col, Descriptions, Image, Row, Typography } from 'antd';
+import { Breadcrumb, Col, Descriptions, Image, Row, Typography, message } from 'antd';
 import './Animalpage.scss';
 
 const Animalpage: React.FC = () => {
@@ -18,6 +18,7 @@ const Animalpage: React.FC = () => {
 			const res = await getCat(id);
 			setSelectedCat(res);
 		} catch (error) {
+			message.error(`Apologies but we could not load the cat for you at this time! Miau!`);
 			console.error(`Something wen't wrong in getting details of the cat.`);
 		}
 	};

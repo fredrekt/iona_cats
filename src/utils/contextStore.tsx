@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { Breed } from '../types/animal.types';
 import { getBreeds } from '../api/api';
+import { message } from 'antd';
 
 interface Store {
 	listOfBreeds: Breed[];
@@ -26,6 +27,7 @@ export const StoreProvider: React.FC<StoreProviderProps> = ({ children }) => {
 			const res = await getBreeds();
 			setListOfBreeds(res);
 		} catch (error) {
+			message.error(`Apologies but we could not load new cat breeds for you at this time! Miau!`);
 			console.error(`Something wen't wrong in getting list of breeds`);
 		}
 	};
