@@ -55,13 +55,14 @@ const CatList: React.FC<CatListProps> = ({ breed }) => {
 	};
 
 	const loadListOfCats = async () => {
-		if (!breed) return;
+		if (!breed || !moreItems) return;
 		try {
 			setLoading(true);
 			const res = await getCatsByBreed(breed, 10, page);
-
 			// Check for repeated items based on id because I can't get the total count of the cats in the db and there's no documentation in the API as well.
-			const uniqueCats = res.filter((newCat) => !listOfCats.some((cat) => cat.id === newCat.id));
+			const uniqueIds = new Set(listOfCats.map((cat) => cat.id));
+			const uniqueCats = res.filter((newCat) => !uniqueIds.has(newCat.id));
+
 			if (uniqueCats.length === 0) {
 				setMoreItems(false);
 				return;
