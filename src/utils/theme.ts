@@ -7,6 +7,7 @@ link: https://ant.design/theme-editor
 
 export const theme = {
     token: {
+      fontFamily: `'Montserrat', sans-serif`
     },
     components: {
         Button: {
