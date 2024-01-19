@@ -1,15 +1,17 @@
-import { Button } from 'antd';
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import DefaultLayout from '../../layouts/DefaultLayout';
+import SelectBreed from '../../components/SelectBreed/SelectBreed';
+import CatList from '../../components/CatList/CatList';
 
 const Homepage: React.FC = () => {
+	const [selectedBreed, setSelectedBreed] = useState<string>('');
+
 	return (
 		<DefaultLayout>
 			<PageTitle title="Home" />
-			<Button type="primary">Hello World</Button>
-			<Link to="/animal">Go to Animal</Link>
+			<SelectBreed setBreed={(breed) => setSelectedBreed(breed)} />
+			<CatList breed={selectedBreed} />
 		</DefaultLayout>
 	);
 };
