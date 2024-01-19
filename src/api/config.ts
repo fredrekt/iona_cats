@@ -1,4 +1,4 @@
-import axios, { InternalAxiosRequestConfig } from 'axios';
+import axios from 'axios';
 
 export const APP_API: string = process.env.REACT_APP_API_URL || '';
 export const APP_VERSION: string = 'v1'
@@ -30,6 +30,7 @@ axios.interceptors.response.use(
 			} else {
 				console.error(error);
 			}
+			console.log('status code: ', statusCode);
 			return Promise.reject(error);
 		}
 
