@@ -7,8 +7,6 @@ axios.defaults.baseURL = `${APP_API}/${APP_VERSION}`;
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.post['Accept'] = 'application/json';
 
-// Set the User-Agent header
-axios.defaults.headers.common['User-Agent'] = 'iona_cats_exercise';
 axios.defaults.headers.common['x-api-key'] = process.env.REACT_APP_API_KEY || '';
 
 axios.interceptors.response.use(

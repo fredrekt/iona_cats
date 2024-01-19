@@ -51,7 +51,7 @@ const Animalpage: React.FC = () => {
 							selectedCat.breeds.length &&
 							Array.isArray(selectedCat.breeds) &&
 							selectedCat.breeds.map((data) => (
-								<>
+								<div key={data.id}>
 									<PageTitle title={data.name} />
 									<Typography.Paragraph>{data.description}</Typography.Paragraph>
 									<Typography.Paragraph>{data.temperament}</Typography.Paragraph>
@@ -86,7 +86,7 @@ const Animalpage: React.FC = () => {
 											{booleanParserDetail(data.experimental)}
 										</Descriptions.Item> */}
 									</Descriptions>
-								</>
+								</div>
 							))}
 					</Col>
 				</Row>
