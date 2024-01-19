@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const APP_API: string = process.env.REACT_APP_API_URL || '';
-export const APP_VERSION: string = 'v1'
+export const APP_VERSION: string = 'v1';
 
 axios.defaults.baseURL = `${APP_API}/${APP_VERSION}`;
 axios.defaults.headers.post['Content-Type'] = 'application/json';
