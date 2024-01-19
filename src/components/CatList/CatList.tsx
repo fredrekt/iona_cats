@@ -40,15 +40,17 @@ const CatList: React.FC<CatListProps> = ({ breed }) => {
 		}
 
 		return (
-			<Button
-				size={'large'}
-				loading={loading}
-				disabled={loading}
-				onClick={() => setPage(page + 1)}
-				type="primary"
-			>
-				Load more
-			</Button>
+			<Col xs={24} sm={24} md={18} lg={18} xl={5} xxl={5}>
+				<Button
+					size={'large'}
+					loading={loading}
+					disabled={loading}
+					onClick={() => setPage(page + 1)}
+					type="primary"
+				>
+					Load more
+				</Button>
+			</Col>
 		);
 	};
 
