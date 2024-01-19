@@ -9,7 +9,7 @@ const Homepage: React.FC = () => {
 
 	return (
 		<DefaultLayout>
-			<PageTitle title="Home" />
+			<PageTitle title="" />
 			<SelectBreed setBreed={(breed) => setSelectedBreed(breed)} />
 			<CatList breed={selectedBreed} />
 		</DefaultLayout>
