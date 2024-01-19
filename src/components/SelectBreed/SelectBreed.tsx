@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Select, Spin } from 'antd';
-import { Breed } from '../../types/animal.types';
-import { getBreeds } from '../../api/api';
 import './SelectBreed.scss';
 import { useStore } from '../../utils/contextStore';
 
