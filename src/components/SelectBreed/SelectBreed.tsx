@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Select, Spin } from 'antd';
 import './SelectBreed.scss';
 import { useStore } from '../../utils/contextStore';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 interface SelectBreedProps {
 	setBreed: (breed: string) => void;
@@ -9,6 +10,21 @@ interface SelectBreedProps {
 
 const SelectBreed: React.FC<SelectBreedProps> = ({ setBreed }) => {
 	const { listOfBreeds } = useStore();
+	const navigate = useNavigate();
+	const location = useLocation();
+	const [selectedBreed, setSelectedBreed] = useState<string | undefined>(undefined);
+
+	useEffect(() => {
+		// Check if there is a 'breed' query parameter in the URL
+		const params = new URLSearchParams(location.search);
+		const breedParam = params.get('breed');
+
+		if (breedParam) {
+			// Set the breed from the query parameter
+			setBreed(breedParam);
+			setSelectedBreed(breedParam);
+		}
+	}, [location.search, setBreed]);
 
 	const filterOption = (input: string, option?: { label: string; value: string }) =>
 		(option?.label ?? '').toLowerCase().includes(input.toLowerCase());
@@ -16,6 +32,14 @@ const SelectBreed: React.FC<SelectBreedProps> = ({ setBreed }) => {
 	const onChange = (value: string) => {
 		console.log(`selected ${value}`);
 		setBreed(value);
+
+		// Update the URL with the selected breed as a query parameter
+		const params = new URLSearchParams(location.search);
+		params.set('breed', value);
+		navigate(`?${params.toString()}`, { replace: true });
+
+		// Update the selected breed state
+		setSelectedBreed(value);
 	};
 
 	const onSearch = (value: string) => {
@@ -43,6 +67,7 @@ const SelectBreed: React.FC<SelectBreedProps> = ({ setBreed }) => {
 				onSearch={onSearch}
 				filterOption={filterOption}
 				options={dataOptions}
+				value={selectedBreed}
 			/>
 		);
 	};

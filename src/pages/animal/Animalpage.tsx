@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PageTitle from '../../components/PageTitle/PageTitle';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import DefaultLayout from '../../layouts/DefaultLayout';
 import { getCat } from '../../api/api';
 import { Api } from '../../types/api.types';
@@ -10,6 +10,7 @@ import './Animalpage.scss';
 const Animalpage: React.FC = () => {
 	const { id } = useParams();
 	const [selectedCat, setSelectedCat] = useState<Api.Animals.Res.GetAnimal | undefined>(undefined);
+	const navigate = useNavigate();
 
 	const loadCatDetails = async () => {
 		if (!id) return;
@@ -27,6 +28,9 @@ const Animalpage: React.FC = () => {
 	}, [id]);
 
 	const booleanParserDetail = (x: boolean): string => (x ? 'Yes' : 'No');
+	const handleGoBack = () => {
+		navigate(-1);
+	};
 
 	return (
 		<DefaultLayout className="animalPage">
@@ -34,8 +38,8 @@ const Animalpage: React.FC = () => {
 				<Row justify={'center'} align={'middle'} gutter={[24, 24]}>
 					<Col xs={24} sm={24} md={12} lg={15} xl={14} xxl={14}>
 						<Breadcrumb className="animalPageBreadcrumb">
-							<Breadcrumb.Item>
-								<Link to="/">Home</Link>
+							<Breadcrumb.Item className="clickable" onClick={handleGoBack}>
+								Home
 							</Breadcrumb.Item>
 							<Breadcrumb.Item>Animal</Breadcrumb.Item>
 						</Breadcrumb>
