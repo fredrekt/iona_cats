@@ -1,7 +1,7 @@
 import { Menu, Typography } from 'antd';
 import React from 'react';
 import './Navbar.scss';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
 	const navigate = useNavigate();
@@ -25,7 +25,9 @@ const Navbar: React.FC = () => {
 
 	return (
 		<div className="navbar">
-			<Typography.Text className="navbarLogo">{process.env.REACT_APP_APP_NAME || 'Cats.'}</Typography.Text>
+			<Link className="navbarLinkLogo" to="/">
+				<Typography.Text className="navbarLogo">{process.env.REACT_APP_APP_NAME || 'Cats.'}</Typography.Text>
+			</Link>
 			<Menu
 				selectedKeys={[pathname]}
 				theme="light"

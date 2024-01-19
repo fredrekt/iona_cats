@@ -2,8 +2,12 @@
 	display: flex;
 	align-items: center;
 	gap: 25px;
-	.navbarLogo {
-		font-weight: 900;
-		font-size: 30px;
-	}
+    .navbarLinkLogo {
+        display: flex;
+        align-items: center;
+        .navbarLogo {
+            font-weight: 900;
+            font-size: 30px;
+        }
+    }
 }
