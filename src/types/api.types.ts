@@ -1,4 +1,4 @@
-import { Animal } from "./animal.types";
+import { Animal, Breed } from "./animal.types";
 
 export namespace Api {
     export namespace Animals {
@@ -7,7 +7,8 @@ export namespace Api {
         }
 
         export namespace Res {
-            export interface Get extends Animal {}
+            export interface GetAnimal extends Animal {}
+            export interface GetBreed extends Breed {}
         }
     }
 }
