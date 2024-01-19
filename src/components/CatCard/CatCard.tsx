@@ -14,7 +14,9 @@ const CatCard: React.FC<CatCardProps> = ({ cat }) => {
 			className="catCard"
 			actions={[
 				<Link to={`/animal/${cat.id}`}>
-					<Button type="primary">View details</Button>
+					<Button size="large" type="primary">
+						View details
+					</Button>
 				</Link>
 			]}
 			hoverable
