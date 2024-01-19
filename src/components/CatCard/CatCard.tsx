@@ -14,7 +14,7 @@ const CatCard: React.FC<CatCardProps> = ({ cat }) => {
 			className="catCard"
 			actions={[
 				<Link to={`/animal/${cat.id}`}>
-					<Button size="large" type="primary">
+					<Button className="catCardCta" size="large" type="primary">
 						View details
 					</Button>
 				</Link>
