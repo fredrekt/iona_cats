@@ -18,7 +18,8 @@ export const theme = {
 			borderRadius: 0
 		},
 		Select: {
-			borderRadius: 0
+			borderRadius: 0,
+      borderRadiusLG: 0
 		},
 		Card: {
 			borderRadius: 0,
