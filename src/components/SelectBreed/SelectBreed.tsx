@@ -3,13 +3,14 @@ import { Select, Spin } from 'antd';
 import { Breed } from '../../types/animal.types';
 import { getBreeds } from '../../api/api';
 import './SelectBreed.scss';
+import { useStore } from '../../utils/contextStore';
 
 interface SelectBreedProps {
 	setBreed: (breed: string) => void;
 }
 
 const SelectBreed: React.FC<SelectBreedProps> = ({ setBreed }) => {
-	const [listOfBreeds, setListOfBreeds] = useState<Breed[]>([]);
+	const { listOfBreeds } = useStore();
 
 	const filterOption = (input: string, option?: { label: string; value: string }) =>
 		(option?.label ?? '').toLowerCase().includes(input.toLowerCase());
@@ -22,19 +23,6 @@ const SelectBreed: React.FC<SelectBreedProps> = ({ setBreed }) => {
 	const onSearch = (value: string) => {
 		console.log('search:', value);
 	};
-
-	const loadListOfBreeds = async () => {
-		try {
-			const res = await getBreeds();
-			setListOfBreeds(res);
-		} catch (error) {
-			console.error(`Something wen't wrong in getting list of breeds`);
-		}
-	};
-
-	useEffect(() => {
-		loadListOfBreeds();
-	}, []);
 
 	const renderSelectBreeds = () => {
 		if (!Array.isArray(listOfBreeds) || !listOfBreeds.length) {
