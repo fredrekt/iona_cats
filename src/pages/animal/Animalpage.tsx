@@ -36,7 +36,7 @@ const Animalpage: React.FC = () => {
 	return (
 		<DefaultLayout className="animalPage">
 			{selectedCat && (
-				<Row justify={'center'} align={'middle'} gutter={[24, 24]}>
+				<Row className="animalPageRow" justify={'center'} align={'middle'} gutter={[24, 24]}>
 					<Col xs={24} sm={24} md={12} lg={15} xl={14} xxl={14}>
 						<Breadcrumb className="animalPageBreadcrumb">
 							<Breadcrumb.Item className="clickable" onClick={handleGoBack}>

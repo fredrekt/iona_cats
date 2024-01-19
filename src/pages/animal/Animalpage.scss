@@ -1,10 +1,14 @@
 .animalPage {
-	.animalPageBreadcrumb {
-		margin: 15px 0;
-		.clickable {
-			cursor: pointer;
+	.animalPageRow {
+		width: 100%;
+		margin-top: 20px;
+		.animalPageBreadcrumb {
+			margin: 15px 0;
+			.clickable {
+				cursor: pointer;
+			}
 		}
-	}
-	.animalPageImage {
+		.animalPageImage {
+		}
 	}
 }
