@@ -24,7 +24,7 @@ const CatList: React.FC<CatListProps> = ({ breed }) => {
 		}
 
 		return listOfCats.map((data) => (
-			<Col key={data.id} className="catCardCol" xs={24} sm={24} md={6} lg={6} xl={6} xxl={6}>
+			<Col key={data.id} className="catCardCol" xs={24} sm={24} md={12} lg={12} xl={6} xxl={6}>
 				<CatCard cat={data} />
 			</Col>
 		));
