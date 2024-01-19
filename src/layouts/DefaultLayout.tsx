@@ -7,10 +7,11 @@ import './DefaultLayout.scss';
 import Footerbar from '../components/Footerbar/Footerbar';
 
 interface DefaultLayoutProps {
+	className?: string;
 	children: React.ReactNode;
 }
 
-const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children }) => {
+const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children, className }) => {
 	const { pathname } = useLocation();
 
 	useEffect(() => {
@@ -18,8 +19,8 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children }) => {
 	}, [pathname]);
 
 	return (
-		<Layout className="mainLayout">
-			<Header style={{ backgroundColor: `#3c3a3b` }}>
+		<Layout className={`mainLayout ${className}`}>
+			<Header className="mainHeader">
 				<Navbar />
 			</Header>
 			<Content className="mainContent">{children}</Content>
